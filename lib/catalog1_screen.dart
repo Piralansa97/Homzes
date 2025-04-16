@@ -1,14 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Catalog1Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: Scaffold(
         extendBodyBehindAppBar: true,
-        body: ListView(
+        body:
+            // StreamBuilder<QuerySnapshot>(
+            //   stream: FirebaseFirestore.instance
+            //       .collection('Homes/MZGUzJZDGrp22mkylbfO')
+            //       .snapshots(),
+            //   builder: (context, snapshot) {
+            //     if (snapshot.hasError)
+            //       return Center(child: Text("Error loading data"));
+            //     if (!snapshot.hasData)
+            //       return Center(child: CircularProgressIndicator());
+
+            //     final properties = snapshot.data!.docs;
+
+            //     return
+            ListView(
           //padding: EdgeInsets.all(16),
           children: [
             Container(
@@ -148,6 +164,14 @@ class Catalog1Screen extends StatelessWidget {
                   borderRadius: BorderRadius.vertical(top: Radius.circular(12)),
                   child: Image.asset('assets/images/home${index + 1}.jpg',
                       fit: BoxFit.cover, width: double.infinity),
+                  //await FirebaseFirestore.instance
+                  // .collection('Homes/MZGUzJZDGrp22mkylbfO/Image')
+                  // .get()
+                  // .then((querySnapshot) {
+                  //   // Handle your data here
+                  // }),
+
+                  //Firestore.instance.collection('Homes/MZGUzJZDGrp22mkylbfO/Image').snapshots().listen((data) {print(data)}),
                 ),
               ),
               Padding(
